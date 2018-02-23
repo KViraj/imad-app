@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-    articleOne: {
+    'article-one' : {
         title : 'Article One | Vii',
         heading : 'Article One',
         date : 'July 25, 2017',
@@ -17,7 +17,7 @@ var articles = {
             <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
             </p>`
     },
-    articleTwo : {
+    'article-two' : {
         title : 'Article Two | Vii',
         heading : 'Article Two',
         date : 'December 27, 2017',
@@ -28,7 +28,7 @@ var articles = {
             <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my second Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
             </p>`
     },
-    articleThree : {
+    'article-three' : {
         title : 'Article Three | Vii',
         heading : 'Article Three',
         date : 'July 4, 2017',
@@ -77,16 +77,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(articles.articleOne));
-});
-
-app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName',function(req,res){
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles.articleName));
 });
 
 app.get('/ui/style.css', function (req, res) {
