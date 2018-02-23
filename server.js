@@ -5,17 +5,42 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title : 'Article One | Vii',
-    heading : 'Article One',
-    date : 'July 25, 2017',
-    content : `<p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
-        </p>
-        <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
-        </p>
-        <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
-        </p>`
-}
+var articles = {
+    articleOne: {
+        title : 'Article One | Vii',
+        heading : 'Article One',
+        date : 'July 25, 2017',
+        content : `<p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>
+            <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>
+            <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>`
+    },
+    articleTwo : {
+        title : 'Article Two | Vii',
+        heading : 'Article Two',
+        date : 'December 27, 2017',
+        content : `<p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my second Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>
+            <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my second Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>
+            <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my second Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>`
+    },
+    articleThree : {
+        title : 'Article Three | Vii',
+        heading : 'Article Three',
+        date : 'July 4, 2017',
+        content : `<p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my third Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>
+            <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my third Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>
+            <p>Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my third Article and will be copied multiple times right in the page as where as in other two articles. Lorem ipsum is the best way, but there is nothing here so I'll say that this is the content for my first Article and will be copied multiple times right in the page as where as in other two articles.
+            </p>`
+    }
+};
+
 
 function createTemplate (data) {
     var title = data.title;
