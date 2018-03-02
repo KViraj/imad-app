@@ -1,4 +1,13 @@
-console.log('Loaded!');
+var button = document.getElementById("counter");
+var counter=0;
 
-var mainText = document.getElementById('main-text');
-mainText.onclick = function(){ alert("clicked!")}
+button.onclick = function () {
+  //Request to server counter endpoint
+  
+  //get response & store in var
+  
+  //render variable in span
+  counter+=1;
+  var spann = document.getElementById("count");
+  spann.innerHTML = counter.toString();
+};
