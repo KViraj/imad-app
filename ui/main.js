@@ -1,4 +1,4 @@
-var button = document.getElementById("counter");
+var button = document.getElementById('counter');
 
 button.onclick = function () {
   //Create Request to server counter endpoint
@@ -10,7 +10,7 @@ button.onclick = function () {
     if(req.readystate === XMLHttpRequest.DONE) {
         if(req.status === 200) {
             var counter = req.resposeText;
-            var spann = document.getElementById("count");
+            var spann = document.getElementById('count');
             spann.innerHTML = counter.toString();
         }
     }  
