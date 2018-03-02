@@ -1,13 +1,21 @@
 var button = document.getElementById("counter");
-var counter=0;
 
 button.onclick = function () {
-  //Request to server counter endpoint
+  //Create Request to server counter endpoint
+  var req = new XMLHttpRequest();
   
-  //get response & store in var
   
-  //render variable in span
-  counter+=1;
-  var spann = document.getElementById("count");
-  spann.innerHTML = counter.toString();
+  //Capture response & store in var
+  req.onreadystatechange = function() {
+    if(req.readystate === XMLHttpRequest.DONE) {
+        if(req.status === 200) {
+            var counter = req.resposeText;
+            var spann = document.getElementById("count");
+            spann.innerHTML = counter.toString();
+        }
+    }  
+  };
+  //Make Request
+  req.open('GET','http://kviraj37.imad.hasura-app.io/counter',true);
+  req.send(null);
 };
